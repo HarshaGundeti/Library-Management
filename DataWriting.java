@@ -1,4 +1,4 @@
-
+package testrun;
 import java.io.File;
 import java.util.*;
 import java.io.*;
@@ -83,16 +83,23 @@ public class DataWriting {
                rObj.utog.put(ucodestr,genre);
                rObj.utol.put(ucodestr,location);
               // ArrayList<String> temp=rObj.Atou.get(Author);
+              /*if(rObj.Atou.get(Author)==null)
+              {
+                  ArrayList<String> temp=new ArrayList<String>();
+                  temp.add(ucodestr);
+                  rObj.Atou.put(Author,temp);
+              } 
+              else
+              {
+                  rObj.Atou.get(Author).add(ucodestr);
+                  //rObj.Atou.put(Author,rObj.Atou.get(Author));
+              }*/
+               rObj.Atou.putIfAbsent(Author,new ArrayList<String>());
+                   rObj.Atou.get(Author).add(ucodestr);
+                  //temp.add(ucodestr);
                
-               try
-               {
-                 rObj.Atou.get(Author).add(ucodestr);
-               }
-               catch(Exception e)
-               {
-                   System.out.println("Exception Found");
-               }
-                 rObj.Atou.put(Author, rObj.Atou.get(Author));
+                 //System.out.println("Exception Found");
+                  //rObj.Atou.put(Author, rObj.Atou.get(Author));
            }
        }
        public void WriteBn(String code,String bn)
@@ -220,6 +227,36 @@ public class DataWriting {
              {// Display error
              }
          }
+       public void AddUser(String id)
+       {
+          try
+          {
+              String textToAppend =id+"0000";
+              
+              BufferedWriter writer = new BufferedWriter(
+                                new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\idPassword.txt", true)  //Set true for append mode
+                            );  
+              if(rObj.itop.size()>0)
+                writer.newLine();   //Add new line
+              writer.write(textToAppend);
+              rObj.itop.put(id,"0000");
+              writer.close();
+              // ****owing****
+               textToAppend =id+"0";
+              
+              BufferedWriter writer1 = new BufferedWriter(
+                                new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\owe.txt", true)  //Set true for append mode
+                            );  
+              if(rObj.itoo.size()>0)
+                writer1.newLine();   //Add new line
+              writer1.write(textToAppend);
+              writer1.close();
+              rObj.itoo.put(id,"0");
+          }
+          catch(Exception e)
+          {// Display error
+          }
+       }
        
   }
 
