@@ -1,3 +1,9 @@
+
+import java.util.ArrayList;
+import javax.swing.ButtonGroup;
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +19,16 @@ public class AddUser extends javax.swing.JFrame {
     /**
      * Creates new form AddUser
      */
+    ButtonGroup G1=new ButtonGroup(); 
     public AddUser() {
         initComponents();
+        jTextField1.setVisible(false);
+        jTextField2.setVisible(false);
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        jButton1.setVisible(false);
+        G1.add(jRadioButton1);
+        G1.add(jRadioButton2);
     }
 
     /**
@@ -53,10 +67,25 @@ public class AddUser extends javax.swing.JFrame {
         });
 
         jRadioButton2.setText("Single User");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,8 +137,64 @@ public class AddUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+            jTextField1.setVisible(true);
+        jTextField2.setVisible(true);
+        jLabel1.setVisible(true);
+        jLabel2.setVisible(true);
+        jButton1.setVisible(true);
+//        jRadioButton1.setVisible(false);
+//        jRadioButton2.setVisible(true);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new AdminPage().setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+         jTextField1.setVisible(true);
+         jButton1.setVisible(true);
+         jLabel2.setVisible(true);
+         
+        jTextField2.setVisible(false);
+        jLabel1.setVisible(false);
+//        jRadioButton1.setVisible(true);
+//        jRadioButton2.setVisible(false);
+        
+         
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        if(jRadioButton1.isSelected()==true)
+        {
+             String in=jTextField1.getText();
+             String fn=jTextField2.getText();
+             int innum=Integer.parseInt(in);
+             int fnnum=Integer.parseInt(fn);
+             
+             for (int i=innum;i<=fnnum;i++)
+             {
+                 String idno=Integer.toString(i);
+                 User user=new User(idno);
+                 user.addsingleUser();
+             }
+             
+             new dialogbox("Added Successfullly");
+       }
+       else if(jRadioButton2.isSelected()==true){
+           
+           String in=jTextField1.getText();
+           User user=new User(in);
+           user.addsingleUser();
+           
+           new dialogbox("Added Successfullly");
+           
+           
+       }
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

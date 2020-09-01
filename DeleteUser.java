@@ -1,3 +1,6 @@
+
+import javax.swing.ButtonGroup;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +16,16 @@ public class DeleteUser extends javax.swing.JFrame {
     /**
      * Creates new form DeleteUser
      */
+    ButtonGroup G1=new ButtonGroup();
     public DeleteUser() {
         initComponents();
+         jTextField1.setVisible(false);
+        jTextField2.setVisible(false);
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        jButton1.setVisible(false);
+        G1.add(jRadioButton1);
+        G1.add(jRadioButton2);
     }
 
     /**
@@ -38,16 +49,36 @@ public class DeleteUser extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jRadioButton1.setText("Multiple Users");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         jRadioButton2.setText("Single User");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("From Id");
 
         jLabel2.setText("to");
 
         jButton1.setText("Delete");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,6 +129,59 @@ public class DeleteUser extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new AdminPage().setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+           jTextField1.setVisible(true);
+        jTextField2.setVisible(true);
+        jLabel1.setVisible(true);
+        jLabel2.setVisible(true);
+        jButton1.setVisible(true);
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+         jTextField1.setVisible(true);
+         jButton1.setVisible(true);
+         jLabel1.setVisible(true);
+         
+        jTextField2.setVisible(false);
+        jLabel2.setVisible(false);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        //
+        
+        if(jRadioButton1.isSelected())
+       {
+          
+             String in=jTextField1.getText();
+             String fn=jTextField2.getText();
+             int innum=Integer.parseInt(in);
+             int fnnum=Integer.parseInt(fn);
+             
+             for (int i=innum;i<=fnnum;i++)
+             {
+                 String idno=Integer.toString(i);
+                 User user=new User(idno);
+                 user.deletesingleUser();
+             }
+             
+             new dialogbox("Deleted Successfullly");
+       }
+       else if(jRadioButton2.isSelected())
+       {
+           String in=jTextField1.getText();
+           User user=new User(in);
+           user.deletesingleUser();
+           
+           new dialogbox("Deleted Successfullly");
+       }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

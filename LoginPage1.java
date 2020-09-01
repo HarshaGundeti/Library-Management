@@ -1,3 +1,6 @@
+
+import javax.swing.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +16,16 @@ public class LoginPage1 extends javax.swing.JFrame {
     /**
      * Creates new form LoginPage1
      */
+    ButtonGroup g1=new ButtonGroup();
+    TestRun tr;
+    DataReading dr;
     public LoginPage1() {
         initComponents();
+        g1.add(jRadioButton1);
+        g1.add(jRadioButton2);
+        tr=new TestRun();
+        dr=tr.returnObj();
+      
     }
 
     /**
@@ -40,9 +51,6 @@ public class LoginPage1 extends javax.swing.JFrame {
 
         jLabel2.setText("password");
 
-        jPasswordField1.setText("jPasswordField1");
-
-        jTextField1.setText("jTextField1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -64,6 +72,11 @@ public class LoginPage1 extends javax.swing.JFrame {
         });
 
         jRadioButton2.setText("User");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,11 +98,11 @@ public class LoginPage1 extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel1))
-                                .addGap(53, 53, 53)
+                                .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPasswordField1)
+                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                                     .addComponent(jTextField1))))))
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,16 +128,38 @@ public class LoginPage1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+         
+        if(jRadioButton2.isSelected()){
+             String eid=jTextField1.getText();
+             String ep=jPasswordField1.getText();
+             
+             if(dr.itop.containsKey(eid)&&dr.itop.get(eid).equals(ep)){
+                 Userobjclass userobj=new Userobjclass(eid);
+                 new userstartpage(userobj).setVisible(true);
+                 this.dispose();
+             }
+        else {
+                 new dialogbox("Incorrect username or password");
+             }
+         }
+        
+        if(jRadioButton1.isSelected()){
+            new AdminPage().setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
      * @param args the command line arguments

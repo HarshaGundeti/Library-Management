@@ -1,4 +1,4 @@
-package testrun;
+
 import java.io.File;
 import java.util.*;
 import java.io.*;
@@ -98,7 +98,7 @@ public class DataWriting {
            try
            {
                 File F;
-                F=new File("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksnumber.txt");
+                F=new File("/Users/rohithputha/Desktop/testrun2/booksnumber.txt");
                 Scanner sc=new Scanner(F);
                 String s="";
                 while(sc.hasNextLine())
@@ -114,7 +114,7 @@ public class DataWriting {
                
      
               BufferedWriter writer = new BufferedWriter(
-                                new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksnumber.txt", false)  //Set true for append mode
+                                new FileWriter("/Users/rohithputha/Desktop/testrun2/booksnumber.txt", false)  //Set true for append mode
                             );  
               //writer.newLine();   //Add new line
               writer.write(s);
@@ -134,7 +134,7 @@ public class DataWriting {
               String textToAppend =ucodestr+Aname;
      
               BufferedWriter writer = new BufferedWriter(
-                                new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksauthor.txt", true)  //Set true for append mode
+                                new FileWriter("/Users/rohithputha/Desktop/testrun2/booksauthor.txt", true)  //Set true for append mode
                             );  
               if(rObj.Ntou.size()>0)
                   writer.newLine();   //Add new line
@@ -153,7 +153,7 @@ public class DataWriting {
               String textToAppend =ucodestr+Bname;
      
               BufferedWriter writer = new BufferedWriter(
-                                new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksname.txt", true)  //Set true for append mode
+                                new FileWriter("/Users/rohithputha/Desktop/testrun2/booksname.txt", true)  //Set true for append mode
                             );  
              if(rObj.Ntou.size()>0)
                 writer.newLine();   //Add new line
@@ -171,7 +171,7 @@ public class DataWriting {
                  String textToAppend =ucodestr+Number;
      
               BufferedWriter writer = new BufferedWriter(
-                                new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksnumber.txt", true)  //Set true for append mode
+                                new FileWriter("/Users/rohithputha/Desktop/testrun2/booksnumber.txt", true)  //Set true for append mode
                             );  
               if(rObj.Ntou.size()>0)
                    writer.newLine();   //Add new line
@@ -189,7 +189,7 @@ public class DataWriting {
                  String textToAppend =ucodestr+genre;
      
               BufferedWriter writer = new BufferedWriter(
-                                new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksgenre.txt", true)  //Set true for append mode
+                                new FileWriter("/Users/rohithputha/Desktop/testrun2/booksgenre.txt", true)  //Set true for append mode
                             );  
               if(rObj.Ntou.size()>0)
                 writer.newLine();   //Add new line
@@ -207,7 +207,7 @@ public class DataWriting {
                  String textToAppend =ucodestr+location;
      
               BufferedWriter writer = new BufferedWriter(
-                                new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\bookslocation.txt", true)  //Set true for append mode
+                                new FileWriter("/Users/rohithputha/Desktop/testrun2/bookslocation.txt", true)  //Set true for append mode
                             );  
              if(rObj.Ntou.size()>0)
                 writer.newLine();   //Add new line
@@ -225,7 +225,7 @@ public class DataWriting {
               String textToAppend =id+"0000";
               
               BufferedWriter writer = new BufferedWriter(
-                                new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\idPassword.txt", true)  //Set true for append mode
+                                new FileWriter("/Users/rohithputha/Desktop/testrun2/idPassword.txt", true)  //Set true for append mode
                             );  
               if(rObj.itop.size()>0)
                 writer.newLine();   //Add new line
@@ -236,7 +236,7 @@ public class DataWriting {
                textToAppend =id+"0";
               
               BufferedWriter writer1 = new BufferedWriter(
-                                new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\owe.txt", true)  //Set true for append mode
+                                new FileWriter("/Users/rohithputha/Desktop/testrun2/owe.txt", true)  //Set true for append mode
                             );  
               if(rObj.itoo.size()>0)
                 writer1.newLine();   //Add new line

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package testrun;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,7 +22,7 @@ import java.util.*;
 
 //import com.google.common.collect.Table; 
 public class DataReading {
-        String bookname;
+        String bookname;    
         File f,f2,f3,f4,f5,f6,f7,f8,f9;
         int counter;
         HashMap<String,ArrayList<String>> Atou=new HashMap<String,ArrayList<String>>();
@@ -38,15 +38,15 @@ public class DataReading {
         HashMap<String,ArrayList<String>> btoi=new HashMap<String,ArrayList<String>>();
         DataReading(){
              bookname="";
-             f= new File("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksname.txt");
-             f2=new File("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksauthor.txt");
-             f3=new File("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksnumber.txt");
-             f4=new File("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksgenre.txt");
-             f5=new File("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\bookslocation.txt");
-             f6=new File("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\idPassword.txt");
-             f7=new File("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\bookDate.txt");
-             f8=new File("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\owe.txt");
-             f9=new File("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\bookid.txt");
+             f= new File("/Users/rohithputha/Desktop/testrun2/booksname.txt");
+             f2=new File("/Users/rohithputha/Desktop/testrun2/booksauthor.txt");
+             f3=new File("/Users/rohithputha/Desktop/testrun2/booksnumber.txt");
+             f4=new File("/Users/rohithputha/Desktop/testrun2/booksgenre.txt");
+             f5=new File("/Users/rohithputha/Desktop/testrun2/bookslocation.txt");
+             f6=new File("/Users/rohithputha/Desktop/testrun2/idPassword.txt");
+             f7=new File("/Users/rohithputha/Desktop/testrun2/bookDate.txt");
+             f8=new File("/Users/rohithputha/Desktop/testrun2/owe.txt");
+             f9=new File("/Users/rohithputha/Desktop/testrun2/bookid.txt");
              counter=0;
         }
         public void bookReadAuthor()
@@ -173,20 +173,26 @@ public class DataReading {
         {
            try{
                Scanner sc=new Scanner(f7);
-               while(sc.hasNextLine()){
+               while(sc.hasNextLine())
+               {
                    String s=sc.nextLine();
                    String id=s.substring(0,6);
-                   int start=6;
+
                    String datebook=s.substring(6);
-                   //ArrayList<String> al=new ArrayList<String>();
+                  
                    itob.putIfAbsent(id,new ArrayList<String>());
                    itob.get(id).add(datebook);
                }
+               
+               
+               
            }
            catch(Exception e)
            {
                
            }
+           
+           
         }
         public void booksid()
         {

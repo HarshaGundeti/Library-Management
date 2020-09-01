@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-package testrun;
 
 import java.util.*;
 import java.io.*;
@@ -18,7 +17,7 @@ public class DataWritingUser {
     DataWritingUser()
     {
         TestRun ntr=new TestRun();
-            rObj=ntr.returnObj();
+        rObj=ntr.returnObj();
     }    
     public void writeidbooks(String book,String id,boolean k)
     {
@@ -31,7 +30,7 @@ public class DataWritingUser {
             rObj.itob.putIfAbsent(id,new ArrayList<String>());
             rObj.itob.get(id).add(bd);
             BufferedWriter writer = new BufferedWriter(
-                                    new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\bookDate.txt", k)  //Set true for append mode
+                                    new FileWriter("/Users/rohithputha/Desktop/testrun2/bookDate.txt", k)  //Set true for append mode
                                 );  
                   if(rObj.itob.size()>0)
                       writer.newLine();   //Add new line
@@ -41,7 +40,7 @@ public class DataWritingUser {
             rObj.btoi.putIfAbsent(book,new ArrayList<String>());
             rObj.btoi.get(book).add(id);
                 BufferedWriter writer1 = new BufferedWriter(
-                                    new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\bookid.txt", k)  //Set true for append mode
+                                    new FileWriter("/Users/rohithputha/Desktop/testrun2/bookid.txt", k)  //Set true for append mode
                                 );  
                   if(rObj.btoi.size()>0)
                       writer1.newLine();   //Add new line
