@@ -195,18 +195,12 @@ public class DataReading {
                while(sc.hasNextLine()){
                    String s=sc.nextLine();
                    String book=s.substring(0,6);
-                   int start=6;
-                   String id;
-                   ArrayList<String> al=new ArrayList<String>();
-                   while(start<s.length())
-                   {
-                       id=s.substring(start,start+6);
-                       al.add(id);
-                       start=start+6;
-                   }
                    
-                   btoi.put(book,al);
-               }
+                   String id=s.substring(6);
+                   ArrayList<String> al=new ArrayList<String>();
+                   btoi.putIfAbsent(book,new ArrayList<String>());
+                   btoi.get(book).add(id);
+                }
            }
            catch(Exception e)
            {

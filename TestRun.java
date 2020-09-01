@@ -38,8 +38,12 @@ public class TestRun {
         //deleteUser("180010");
         //deleteOwe("180010");
         //returnBook("180283","000283");
-        returnBookId("000014","180283");
-        //dwu.writeidbooks("000018","180018",true);
+       // returnBookId("000018","180118");
+        //dw.control("pokiri","puri","5","movie","L6A1");
+        //dw.control("brahmotsavam","srikanth","2","movie","L6A1");
+             
+       deletebook("000009");
+        //dwu.writeidbooks("0000283","180283",true);
         // TODO code application logic here
          /*Iterator it = dr.itob.entrySet().iterator();
          while(it.hasNext()) {
@@ -227,6 +231,7 @@ public class TestRun {
             System.out.println(obj.getKey());}
         if(ab.size()>1)
          {
+             System.out.println("Hi hello1");
             //al.remove(id);
              for(int i=0;i<ab.size();i++)
              { 
@@ -241,7 +246,7 @@ public class TestRun {
          }
          else
          {
-             System.out.println("Hi hello");
+             System.out.println("Hi hello2");
              dr.btoi.remove(book);
          }
         boolean k=false;
@@ -270,6 +275,33 @@ public class TestRun {
          catch(Exception e)
          {
              System.out.println("Exception found in returnBookIdMain()");
+         }
+     }
+     public static void deletebook(String book)
+     {
+         dr.utobn.put(book,"0");
+         boolean k=false;
+         for( Map.Entry<String,String>i:dr.utobn.entrySet())
+         {
+             try
+                {
+                    String textToAppend =i.getKey()+i.getValue();
+                    
+                     BufferedWriter writer = new BufferedWriter(
+                                      new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksnumber.txt",k)  //Set true for append mode
+                                  );  
+                    if(dr.utobn.size()>0&&k==true)
+                        writer.newLine();   //Add new line
+                    writer.write(textToAppend);
+                    //dr.itop.put(id,"0000");
+                    writer.close();
+                   
+                    k=true;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("Exception found in deletebook()");
+                }
          }
      }
 }

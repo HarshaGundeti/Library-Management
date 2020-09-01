@@ -2,6 +2,7 @@ package testrun;
 import java.io.File;
 import java.util.*;
 import java.io.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,28 +19,15 @@ public class DataWriting {
        int ucode;
        String ucodestr;
        DataReading rObj=new DataReading(); 
-       
+      // Random rand=new Random()
        DataWriting (){
-            try{
-             /*f= new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksname.txt");
-             f2=new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksauthor.txt");
-             f3=new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksnumber.txt");
-             f4=new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\booksgenre.txt");
-             f5=new FileWriter("C:\\Users\\chsra\\OneDrive\\Desktop\\LibraryManagement\\bookslocation.txt");*/
-            TestRun ntr=new TestRun();
-            rObj=ntr.returnObj();
-            /*    rObj.bookReadAuthor();
-            //dr.bookReadAuthor();
-             rObj.bookReadGenre();
-             rObj.bookReadLocation();
-             rObj.bookReadName();
-             rObj.bookReadNumber();*/
-             ucode=rObj.Ntou.size()+1;
-             rObj.counter=ucode;
-             
-             ucodestr=ucodeString();
+            try
+            {
+                TestRun ntr=new TestRun();
+                rObj=ntr.returnObj();
             }
-            catch(Exception e){
+            catch(Exception e)
+            {
                 //Display error
             }
        }
@@ -56,6 +44,9 @@ public class DataWriting {
           /* for (Map.Entry<String,String> entry : rObj.utoN.entrySet())  
             System.out.println("Key = " + entry.getKey() + 
                              ", Value = " + entry.getValue()); */
+            ucode=rObj.Ntou.size()+1;
+             rObj.counter=ucode;
+             ucodestr=ucodeString();
            System.out.println(rObj.Ntou.size());
            if(rObj.Ntou.containsKey(Name)){
                
